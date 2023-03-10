@@ -1,3 +1,5 @@
+![image](https://vloe-imgs.s3.amazonaws.com/nvim.png)
+
 ## Overview
 
 This is my Neovim config.
