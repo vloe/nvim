@@ -1,4 +1,14 @@
-local cmp_capabilities = require("cmp_nvim_lsp")
+local status, cmp_capabilities = pcall(require, "cmp_nvim_lsp")
+if not status then
+	print("cmp_nvim_lsp not installed")
+	return
+end
+
+local status, null_ls = pcall(require, "null-ls")
+if not status then
+	print("null-ls not installed")
+	return
+end
 
 local fn = vim.fn
 local env = vim.env
@@ -28,8 +38,8 @@ local on_attach = function(client, bufnr)
 			end,
 		})
 	end
-        
-        -- hover
+
+	-- hover
 	if client.server_capabilities.documentHighlightProvider then
 		local document_highlight_group = api.nvim_create_augroup("DocumentHighlight", { clear = true })
 
@@ -151,8 +161,6 @@ require("lspconfig")["tailwindcss"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
-local null_ls = require("null-ls")
 
 null_ls.setup({
 	on_attach = on_attach,

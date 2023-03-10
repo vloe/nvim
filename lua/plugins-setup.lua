@@ -23,26 +23,17 @@ vim.cmd([[
 -- import packer safely
 local status, packer = pcall(require, "packer")
 if not status then
+	print("packer not installed")
 	return
 end
 
--- add list of plugins to install
 return packer.startup(function(use)
-	-- packer can manage itself
 	use("wbthomason/packer.nvim")
-
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
-
 	use("marko-cerovac/material.nvim")
-	-- file explorer
 	use("nvim-tree/nvim-tree.lua")
-
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
-
-	-- vs-code like icons
 	use("nvim-tree/nvim-web-devicons")
-
-	-- treesitter configuration
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -50,7 +41,6 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
-
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("neovim/nvim-lspconfig")
 	use("akinsho/bufferline.nvim")
