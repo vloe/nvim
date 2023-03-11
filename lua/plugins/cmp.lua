@@ -51,6 +51,10 @@ cmp.setup({
 	},
 	window = {
 		documentation = {
+			max_width = 0,
+			max_height = 0,
+		},
+		completion = {
 			max_width = 60,
 			max_height = 15,
 		},
@@ -75,12 +79,8 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4)),
-		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
-		["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item()),
-		["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item()),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete()),
-		["<C-e>"] = cmp.mapping.abort(),
+		["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item()),
+		["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item()),
 		["<Tab>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
