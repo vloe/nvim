@@ -45,3 +45,4 @@ cmd.colorscheme("material")
 opt.swapfile = false
 opt.backup = false
 opt.laststatus = 0
+opt.pumheight = 8

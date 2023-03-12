@@ -54,10 +54,6 @@ cmp.setup({
 			max_width = 0,
 			max_height = 0,
 		},
-		completion = {
-			max_width = 60,
-			max_height = 15,
-		},
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
