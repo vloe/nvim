@@ -33,7 +33,6 @@ return packer.startup(function(use)
 	use("marko-cerovac/material.nvim")
 	use("nvim-tree/nvim-tree.lua")
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
-	use("nvim-tree/nvim-web-devicons")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()

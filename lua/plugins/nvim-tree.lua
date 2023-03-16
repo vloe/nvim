@@ -21,6 +21,7 @@ nvimtree.setup({
 
 	view = {
 		width = 32,
+		centralize_selection = true,
 	},
 
 	renderer = {
@@ -28,9 +29,9 @@ nvimtree.setup({
 		root_folder_modifier = ":t",
 		icons = {
 			glyphs = {
-				default = "",
-				symlink = "",
-				bookmark = "◉",
+				default = "",
+				symlink = "",
+				bookmark = "",
 				git = {
 					unstaged = "",
 					staged = "",
@@ -41,16 +42,15 @@ nvimtree.setup({
 					ignored = "",
 				},
 				folder = {
-					default = "",
-					open = "",
-					symlink = "",
+					default = "",
+					open = "",
+					symlink = "",
+					arrow_closed = "", -- arrow when folder is closed
+					arrow_open = "", -- arrow when folder is open
 				},
 			},
 			show = {
 				git = false,
-				file = true,
-				folder = true,
-				folder_arrow = false,
 			},
 		},
 		indent_markers = {

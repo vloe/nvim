@@ -7,8 +7,8 @@ opt.number = true -- shows absolute line number on cursor line (when relative nu
 opt.relativenumber = false
 
 -- tabs & indentation
-opt.tabstop = 8 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 8 -- 2 spaces for indent width
+opt.tabstop = 8 -- 8 spaces for tabs
+opt.shiftwidth = 8 -- 8 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
@@ -19,11 +19,7 @@ opt.wrap = false -- disable line wrapping
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
--- appearance
-
--- turn on termguicolors for nightfly colorscheme to work
--- (have to use iterm2 or any other true color terminal)
-opt.termguicolors = true
+opt.termguicolors = true -- turn on termguicolors for nightfly colorscheme to work
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
@@ -39,6 +35,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
 opt.updatetime = 500 -- Trigger CursorHold event faster.
+
+opt.fillchars = "eob: " -- remove all ~ symbols
 
 g.material_style = "deep ocean"
 cmd.colorscheme("material")
