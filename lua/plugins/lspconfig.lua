@@ -174,6 +174,7 @@ null_ls.setup({
 				"svelte",
 				"html",
 				"json",
+				"css",
 			},
 		}),
 		null_ls.builtins.diagnostics.eslint,
