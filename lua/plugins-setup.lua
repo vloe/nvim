@@ -44,6 +44,7 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("akinsho/bufferline.nvim")
 	use("famiu/bufdelete.nvim")
+	use("folke/trouble.nvim")
 
 	-- auto completion
 	use("hrsh7th/cmp-nvim-lsp")

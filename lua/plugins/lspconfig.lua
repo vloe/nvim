@@ -19,7 +19,7 @@ local keymap = vim.keymap
 local api = vim.api
 
 diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	severity_sort = true,
 })
 
@@ -67,48 +67,8 @@ local on_attach = function(client, bufnr)
 
 	local floating_windows_width = 55
 
-	keymap.set("n", "gd", function()
-		lsp.buf.definition()
-	end, map_opts)
-
-	keymap.set("n", "gD", function()
-		lsp.buf.declaration()
-	end, map_opts)
-
-	keymap.set("n", "gt", function()
-		lsp.buf.type_definition()
-	end, map_opts)
-
-	keymap.set("n", "gr", function()
-		lsp.buf.references()
-	end, map_opts)
-
-	keymap.set("n", "gi", function()
-		lsp.buf.implementation()
-	end, map_opts)
-
-	keymap.set("n", "<Space>c*", function()
-		lsp.buf.rename()
-	end, map_opts)
-
 	keymap.set("n", "K", function()
 		lsp.buf.hover()
-	end, map_opts)
-
-	keymap.set("n", "gx", function()
-		lsp.buf.code_action()
-	end, map_opts)
-
-	keymap.set("n", "\\f", function()
-		vim.lsp.buf.format({
-			filter = function(server)
-				return server.name ~= "tsserver"
-			end,
-		})
-	end, map_opts)
-
-	keymap.set("i", "<C-k>", function()
-		lsp.buf.signature_help()
 	end, map_opts)
 
 	keymap.set("n", "J", function()
@@ -117,24 +77,6 @@ local on_attach = function(client, bufnr)
 			scope = "line",
 			header = false,
 			width = floating_windows_width,
-		})
-	end, map_opts)
-
-	keymap.set("n", "[g", function()
-		diagnostic.goto_prev({
-			float = {
-				source = "always",
-				width = floating_windows_width,
-			},
-		})
-	end, map_opts)
-
-	keymap.set("n", "]g", function()
-		diagnostic.goto_next({
-			float = {
-				source = "always",
-				width = floating_windows_width,
-			},
 		})
 	end, map_opts)
 end
@@ -175,6 +117,7 @@ null_ls.setup({
 				"html",
 				"json",
 				"css",
+				"prisma",
 			},
 		}),
 		null_ls.builtins.diagnostics.eslint,
