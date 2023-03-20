@@ -20,6 +20,7 @@ nvimtree.setup({
 	},
 
 	view = {
+		side = "right",
 		width = 32,
 		centralize_selection = true,
 	},

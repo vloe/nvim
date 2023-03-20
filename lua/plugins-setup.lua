@@ -43,6 +43,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("neovim/nvim-lspconfig")
 	use("akinsho/bufferline.nvim")
+	use("famiu/bufdelete.nvim")
 
 	-- auto completion
 	use("hrsh7th/cmp-nvim-lsp")
