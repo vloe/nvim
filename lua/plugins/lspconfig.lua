@@ -122,5 +122,6 @@ null_ls.setup({
 		}),
 		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.diagnostics.tsc,
+		null_ls.builtins.code_actions.gitsigns,
 	},
 })

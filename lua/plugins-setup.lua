@@ -40,24 +40,26 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("neovim/nvim-lspconfig")
 	use("akinsho/bufferline.nvim")
 	use("famiu/bufdelete.nvim")
-	use("folke/trouble.nvim")
 
-	-- auto completion
+	-- lsp stuff
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-buffer")
-
-	-- snippets
 	use("L3MON4D3/LuaSnip")
-	use("github/copilot.vim")
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("neovim/nvim-lspconfig")
 
 	-- terminal
 	use("akinsho/toggleterm.nvim")
+
+	-- git stuff
+	use("github/copilot.vim")
+	use({
+		"lewis6991/gitsigns.nvim",
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
