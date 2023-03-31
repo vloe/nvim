@@ -50,7 +50,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("L3MON4D3/LuaSnip")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("MunifTanjim/prettier.nvim")
 	use("neovim/nvim-lspconfig")
 
 	-- terminal

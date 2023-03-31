@@ -27,35 +27,15 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Use an on_attach function to only map the following keys
 local on_attach = function(client, bufnr)
-	-- format on save
+
+        -- format on save
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.formatting_seq_sync()
-			end,
-		})
-	end
-
-	-- hover
-	if client.server_capabilities.documentHighlightProvider then
-		local document_highlight_group = api.nvim_create_augroup("DocumentHighlight", { clear = true })
-
-		api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-			group = document_highlight_group,
-			buffer = 0,
-			callback = function()
-				lsp.buf.document_highlight()
-			end,
-		})
-
-		api.nvim_create_autocmd("CursorMoved", {
-			group = document_highlight_group,
-			buffer = 0,
-			callback = function()
-				lsp.buf.clear_references()
+				vim.lsp.buf.formatting_seq_sync()		
 			end,
 		})
 	end
@@ -104,12 +84,24 @@ require("lspconfig")["tailwindcss"].setup({
 	capabilities = capabilities,
 })
 
+local has_root = function(root_files)
+  return function(utils)
+    return utils.root_has_file(root_files)
+  end
+end
+
+local js_conf = function(root_files)
+  return {
+    only_local = "node_modules/.bin",
+    condition = has_root(root_files),
+  }
+end
+
 null_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettier.with({
+                null_ls.builtins.formatting.prettier.with({
 			filetypes = {
 				"javascript",
 				"typescript",
@@ -121,10 +113,23 @@ null_ls.setup({
 				"scss",
 				"prisma",
 				"markdown",
-			},
+			},      
+                        js_conf({
+                                ".prettierrc",
+                                ".prettierrc.cjs",
+                                ".prettierrc.js",
+                                ".prettierrc.json",
+                                "prettier.config.js",
+                        })
 		}),
-		null_ls.builtins.diagnostics.eslint,
-		null_ls.builtins.diagnostics.tsc,
+		null_ls.builtins.diagnostics.eslint.with(           
+                        js_conf({
+                                ".eslintrc",
+                                ".eslintrc.cjs",
+                                ".eslintrc.js",
+                                ".eslintrc.json",
+                        })
+                ),
 		null_ls.builtins.code_actions.gitsigns,
 	},
 })

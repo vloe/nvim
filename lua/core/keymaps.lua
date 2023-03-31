@@ -15,7 +15,7 @@ keymap.set("i", "jk", "<ESC>")
 ----------------------
 
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+        keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
 -- bufferline
 keymap.set("n", "<leader>l", ":BufferLineCycleNext<CR>")
