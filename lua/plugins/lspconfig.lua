@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.formatting_seq_sync()		
+				vim.lsp.buf.formatting()		
 			end,
 		})
 	end
@@ -64,7 +64,30 @@ end
 local capabilities = cmp_capabilities.default_capabilities()
 
 require("lspconfig")["tsserver"].setup({
-	on_attach = on_attach,
+	on_attach = function(client, bufnr)
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false	
+
+                local map_opts = {
+		        buffer = true,
+		        silent = true,
+	        }
+
+	        local floating_windows_width = 55
+
+	        keymap.set("n", "K", function()
+		        lsp.buf.hover()
+        	end, map_opts)
+
+	        keymap.set("n", "J", function()
+		        diagnostic.open_float(0, {
+		        	source = "always",
+		        	scope = "line",
+		        	header = false,
+		        	width = floating_windows_width,
+	        	})
+        	end, map_opts)
+        end,
 	capabilities = capabilities,
 })
 require("lspconfig")["svelte"].setup({
