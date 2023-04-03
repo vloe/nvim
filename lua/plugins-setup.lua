@@ -30,7 +30,6 @@ end
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
-	use("marko-cerovac/material.nvim")
 	use("nvim-tree/nvim-tree.lua")
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 	use({
@@ -43,6 +42,7 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim")
 	use("famiu/bufdelete.nvim")
 
+	use("marko-cerovac/material.nvim")
 	-- lsp stuff
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/nvim-cmp")
@@ -57,9 +57,7 @@ return packer.startup(function(use)
 
 	-- git stuff
 	use("github/copilot.vim")
-	use({
-		"lewis6991/gitsigns.nvim",
-	})
+	use("lewis6991/gitsigns.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -5,5 +5,5 @@ if not status then
 end
 
 gitsigns.setup({
-                                 current_line_blame = true,
+	current_line_blame = true,
 })

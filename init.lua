@@ -10,3 +10,10 @@ require("plugins.cmp")
 require("plugins.luasnip")
 require("plugins.toggleterm")
 require("plugins.gitsigns")
+
+-- Color scheme
+vim.opt.termguicolors = true
+vim.g.material_style = "deep ocean"
+vim.cmd.colorscheme("material")
+
+vim.cmd([[autocmd ColorScheme * highlight GitSignsAdd guifg=#bf8ce0]])

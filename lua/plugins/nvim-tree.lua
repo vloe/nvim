@@ -18,7 +18,9 @@ nvimtree.setup({
 			},
 		},
 	},
-
+        filters = {
+                dotfiles = false
+        },
 	view = {
 		side = "right",
 		width = 32,
@@ -54,8 +56,9 @@ nvimtree.setup({
 				git = false,
 			},
 		},
+                special_files = { "README.md" },
 		indent_markers = {
-			enable = true,
+			enable = false,
 		},
 	},
 })

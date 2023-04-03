@@ -38,8 +38,6 @@ opt.updatetime = 500 -- Trigger CursorHold event faster.
 
 opt.fillchars = "eob: " -- remove all ~ symbols
 
-g.material_style = "deep ocean"
-cmd.colorscheme("material")
 opt.swapfile = false
 opt.backup = false
 opt.laststatus = 0
