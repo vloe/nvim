@@ -4,32 +4,28 @@ if not status then
 	return
 end
 
--- recommended settings from nvim-tree documentation
+-- recommended settings from nvim-tree documentation.
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup({
-	hijack_cursor = true,
+	hijack_cursor = true, -- keeps the cursor on the first letter of filename while navigating.
 	actions = {
 		open_file = {
-			resize_window = true,
-			window_picker = {
-				enable = false,
-			},
+			resize_window = true, -- resizes the tree when opening a file.
 		},
 	},
-        filters = {
-                dotfiles = false
-        },
+	filters = {
+		dotfiles = true, -- do not show dotfiles, toggle with H.
+	},
 	view = {
 		side = "right",
 		width = 32,
-		centralize_selection = true,
 	},
 
 	renderer = {
 		highlight_git = true,
-		root_folder_modifier = ":t",
+		root_folder_modifier = ":t", -- makes root folder look nicer, trust.
 		icons = {
 			glyphs = {
 				default = "",
@@ -52,18 +48,12 @@ nvimtree.setup({
 					arrow_open = "", -- arrow when folder is open
 				},
 			},
-			show = {
-				git = false,
-			},
 		},
-                special_files = { "README.md" },
-		indent_markers = {
-			enable = false,
-		},
+		special_files = { "README.md" },
 	},
 })
 
--- open nvim-tree on setup
+-- open nvim-tree on setup.
 local function open_nvim_tree(data)
 	local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
