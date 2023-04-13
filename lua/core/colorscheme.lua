@@ -1,34 +1,40 @@
 local status, material = pcall(require, "material")
 if not status then
-	print("Colorscheme not found!")
+	print("material colorscheme not found!")
 	return
 end
 
-local g = vim.g
-local cmd = vim.api.nvim_command
-g.material_style = "deep ocean"
-local colors = require("material/colors")
+local status, colors = pcall(require, "material/colors")
+if not status then
+	print("material/colors not found!")
+	return
+end
 
--- Custom colors.
+local cmd = vim.api.nvim_command
+
+-- custom colors.
 colors.main.pink = "#ff9cac"
 
 material.setup({
-	contrast = {
-		sidebars = true,
-		floating_windows = false,
-		line_numbers = false,
-		sign_column = false,
-		cursor_line = false,
-		popup_menu = true,
-	},
 	styles = {
-		comments = { italic = true },
+		comments = {
+			italic = true,
+		},
 	},
-	plugins = { "nvim-cmp", "nvim-tree" },
-	disable = { colored_cursor = true, term_colors = true, borders = true },
+	plugins = {
+		"nvim-cmp",
+		"nvim-tree",
+		"gitsigns",
+		"trouble",
+	},
+	disable = {
+		colored_cursor = true,
+		term_colors = true,
+		borders = true,
+	},
 	custom_highlights = {
 		-- Common
-		Identifier = { fg = colors.main.pink },
+		Identifier = { fg = colors.main.blue },
 		Todo = { fg = colors.main.yellow, bold = true },
 		DiffAdd = { bg = "#45493e" },
 		DiffChange = { bg = "#384851" },
@@ -48,6 +54,8 @@ material.setup({
 		NormalFloat = { bg = colors.editor.border },
 		PreProc = { fg = colors.main.pink },
 		MsgArea = { bg = "#1e2030" },
+		String = { fg = colors.main.purple },
+		Boolean = { fg = colors.main.pink },
 
 		-- Git Commit Messages
 		gitcommitHeader = { fg = colors.main.purple },
@@ -62,7 +70,6 @@ material.setup({
 		-- NvimTree
 		NvimTreeNormal = { bg = "#161926" },
 		NvimTreeIndentMarker = {},
-		NvimTreeFolderIcon = { fg = colors.editor.fg },
 		NvimTreeFolderName = {},
 		NvimTreeOpenedFolderName = {},
 		NvimTreeGitDirty = { fg = colors.main.purple },
@@ -72,12 +79,12 @@ material.setup({
 		NvimTreeGitNew = { fg = colors.main.purple },
 		NvimTreeGitDeleted = { fg = colors.main.purple },
 		NvimTreeGitIgnored = { fg = colors.syntax.comments },
-		NvimTreeRootFolder = { fg = colors.main.purple, bold = true },
-		NvimTreeSpecialFile = {},
+		NvimTreeRootFolder = { bold = true },
+		NvimTreeSpecialFile = { underline = true, italic = true },
 
 		-- Bufferline
-		BufferLineFill = { bg = "#161926" },
-		BufferlineTabs = { bg = "#161926" },
+		BufferlineBufferSelected = {},
+		BufferlineFill = { bg = "#161926" },
 
 		-- Cmp
 		CmpItemMenu = { fg = colors.main.gray },
@@ -110,12 +117,12 @@ material.setup({
 		CmpItemKindOperator = { fg = colors.main.pink },
 
 		-- GitSigns
-		GitSignsAdd = { fg = colors.main.green },
-		GitSignsAddNr = { fg = colors.main.green },
-		GitSignsAddLn = { fg = colors.main.green },
-		GitSignsChange = { fg = colors.main.yellow },
-		GitSignsChangeNr = { fg = colors.main.yellow },
-		GitSignsChangeLn = { fg = colors.main.yellow },
+		GitSignsAdd = { fg = colors.main.purple },
+		GitSignsAddNr = { fg = colors.main.purple },
+		GitSignsAddLn = { fg = colors.main.purple },
+		GitSignsChange = { fg = colors.main.purple },
+		GitSignsChangeNr = { fg = colors.main.purple },
+		GitSignsChangeLn = { fg = colors.main.purple },
 		GitSignsDelete = { fg = colors.main.red },
 		GitSignsDeleteNr = { fg = colors.main.red },
 		GitSignsDeleteLn = { fg = colors.main.red },
@@ -298,4 +305,3 @@ material.setup({
 		mkdURL = { fg = colors.main.pink, underline = true },
 	},
 })
-

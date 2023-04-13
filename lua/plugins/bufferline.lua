@@ -6,6 +6,7 @@ end
 
 bufferline.setup({
 	options = {
+		always_show_bufferline = true,
 		show_buffer_close_icons = false,
 		show_close_icon = false,
 		enforce_regular_tabs = true,
@@ -16,7 +17,8 @@ bufferline.setup({
 				filetype = "NvimTree",
 			},
 		},
-		diagnostics = "nvim_lsp",
-		indicator = { style = "nil" },
+		indicator = {
+			style = "none",
+		},
 	},
 })
