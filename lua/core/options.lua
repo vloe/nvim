@@ -41,3 +41,8 @@ opt.swapfile = false
 opt.backup = false
 opt.laststatus = 0
 opt.pumheight = 8
+
+-- actually does need to be here, trust.
+opt.termguicolors = true
+g.material_style = "deep ocean"
+cmd.colorscheme("material")

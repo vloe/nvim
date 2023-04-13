@@ -27,15 +27,14 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Use an on_attach function to only map the following keys
 local on_attach = function(client, bufnr)
-
-        -- format on save
+	-- format on save
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.formatting()		
+				vim.lsp.buf.formatting()
 			end,
 		})
 	end
@@ -45,7 +44,7 @@ local on_attach = function(client, bufnr)
 		silent = true,
 	}
 
-	local floating_windows_width = 55
+	local floating_windows_width = 45
 
 	keymap.set("n", "K", function()
 		lsp.buf.hover()
@@ -65,29 +64,29 @@ local capabilities = cmp_capabilities.default_capabilities()
 
 require("lspconfig")["tsserver"].setup({
 	on_attach = function(client, bufnr)
-                client.server_capabilities.documentFormattingProvider = false
-                client.server_capabilities.documentRangeFormattingProvider = false	
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
 
-                local map_opts = {
-		        buffer = true,
-		        silent = true,
-	        }
+		local map_opts = {
+			buffer = true,
+			silent = true,
+		}
 
-	        local floating_windows_width = 55
+		local floating_windows_width = 45
 
-	        keymap.set("n", "K", function()
-		        lsp.buf.hover()
-        	end, map_opts)
+		keymap.set("n", "K", function()
+			lsp.buf.hover()
+		end, map_opts)
 
-	        keymap.set("n", "J", function()
-		        diagnostic.open_float(0, {
-		        	source = "always",
-		        	scope = "line",
-		        	header = false,
-		        	width = floating_windows_width,
-	        	})
-        	end, map_opts)
-        end,
+		keymap.set("n", "J", function()
+			diagnostic.open_float(0, {
+				source = "always",
+				scope = "line",
+				header = false,
+				width = floating_windows_width,
+			})
+		end, map_opts)
+	end,
 	capabilities = capabilities,
 })
 require("lspconfig")["svelte"].setup({
@@ -108,23 +107,23 @@ require("lspconfig")["tailwindcss"].setup({
 })
 
 local has_root = function(root_files)
-  return function(utils)
-    return utils.root_has_file(root_files)
-  end
+	return function(utils)
+		return utils.root_has_file(root_files)
+	end
 end
 
 local js_conf = function(root_files)
-  return {
-    only_local = "node_modules/.bin",
-    condition = has_root(root_files),
-  }
+	return {
+		only_local = "node_modules/.bin",
+		condition = has_root(root_files),
+	}
 end
 
 null_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	sources = {
-                null_ls.builtins.formatting.prettier.with({
+		null_ls.builtins.formatting.prettier.with({
 			filetypes = {
 				"javascript",
 				"typescript",
@@ -136,25 +135,23 @@ null_ls.setup({
 				"scss",
 				"prisma",
 				"markdown",
-			},      
-                        js_conf({
-                                ".prettierrc",
-                                ".prettierrc.cjs",
-                                ".prettierrc.js",
-                                ".prettierrc.json",
-                                "prettier.config.js",
-                        })
+			},
+			js_conf({
+				".prettierrc",
+				".prettierrc.cjs",
+				".prettierrc.js",
+				".prettierrc.json",
+				"prettier.config.js",
+			}),
 		}),
-		null_ls.builtins.diagnostics.eslint.with(           
-                        js_conf({
-                                ".eslintrc",
-                                ".eslintrc.cjs",
-                                ".eslintrc.js",
-                                ".eslintrc.json",
-                        })
-                ),
+		null_ls.builtins.diagnostics.eslint.with(js_conf({
+			".eslintrc",
+			".eslintrc.cjs",
+			".eslintrc.js",
+			".eslintrc.json",
+		})),
 		null_ls.builtins.code_actions.gitsigns,
-                null_ls.builtins.formatting.stylua,
-                null_ls.builtins.completion.spell,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.completion.spell,
 	},
 })

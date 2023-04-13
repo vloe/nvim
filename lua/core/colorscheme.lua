@@ -16,7 +16,7 @@ local cmd = vim.api.nvim_command
 colors.main.pink = "#ff9cac"
 
 material.setup({
-	styles = {
+	styles = {                   
 		comments = {
 			italic = true,
 		},
@@ -56,6 +56,8 @@ material.setup({
 		MsgArea = { bg = "#1e2030" },
 		String = { fg = colors.main.purple },
 		Boolean = { fg = colors.main.pink },
+		StatusLine = { bg = "#161926" },
+		StatusLineNC = { bg = "#161926" },
 
 		-- Git Commit Messages
 		gitcommitHeader = { fg = colors.main.purple },
