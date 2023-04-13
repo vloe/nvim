@@ -28,10 +28,9 @@ if not status then
 end
 
 return packer.startup(function(use)
+	-- basics
 	use("wbthomason/packer.nvim")
-	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
-	use("nvim-tree/nvim-tree.lua")
-	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+	use("nvim-lua/plenary.nvim")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -39,10 +38,14 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
+
+	-- bufferline
 	use("akinsho/bufferline.nvim")
 	use("famiu/bufdelete.nvim")
 
+	-- color scheme
 	use("marko-cerovac/material.nvim")
+
 	-- lsp stuff
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/nvim-cmp")
@@ -52,12 +55,21 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("neovim/nvim-lspconfig")
 
-	-- terminal
+	-- other terminal window stuff
 	use("akinsho/toggleterm.nvim")
+	use("christoomey/vim-tmux-navigator")
+	use("nvim-tree/nvim-tree.lua")
 
 	-- git stuff
-	use("github/copilot.vim")
+	use("zbirenbaum/copilot.lua")
 	use("lewis6991/gitsigns.nvim")
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
