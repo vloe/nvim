@@ -27,6 +27,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Use an on_attach function to only map the following keys
 local on_attach = function(client, bufnr)
+	print(client)
 	-- format on save
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -34,7 +35,7 @@ local on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.formatting()
+				vim.lsp.buf.formatting_seq_sync()
 			end,
 		})
 	end
@@ -63,30 +64,7 @@ end
 local capabilities = cmp_capabilities.default_capabilities()
 
 require("lspconfig")["tsserver"].setup({
-	on_attach = function(client, bufnr)
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentRangeFormattingProvider = false
-
-		local map_opts = {
-			buffer = true,
-			silent = true,
-		}
-
-		local floating_windows_width = 45
-
-		keymap.set("n", "K", function()
-			lsp.buf.hover()
-		end, map_opts)
-
-		keymap.set("n", "J", function()
-			diagnostic.open_float(0, {
-				source = "always",
-				scope = "line",
-				header = false,
-				width = floating_windows_width,
-			})
-		end, map_opts)
-	end,
+	on_attach = on_attach,
 	capabilities = capabilities,
 })
 require("lspconfig")["svelte"].setup({
@@ -152,6 +130,5 @@ null_ls.setup({
 		})),
 		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.completion.spell,
 	},
 })
