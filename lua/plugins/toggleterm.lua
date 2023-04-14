@@ -5,8 +5,8 @@ if not status then
 end
 
 toggleterm.setup({
-	size = 8,
-	open_mapping = [[<c-\>]],
+	size = 7,
+	open_mapping = [[<c-b>]],
 	shade_filetypes = {},
 	shade_terminals = true,
 	shading_factor = "1",
