@@ -7,8 +7,9 @@ opt.number = true -- shows absolute line number on cursor line (when relative nu
 opt.relativenumber = false
 
 -- tabs & indentation
-opt.tabstop = 8 -- 8 spaces for tabs
-opt.shiftwidth = 8 -- 8 spaces for indent width
+opt.tabstop = 4 -- 4 spaces for tabs
+opt.softtabstop = 4 -- 4 spaces for tabs
+opt.shiftwidth = 4 -- 4 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
@@ -37,12 +38,16 @@ opt.updatetime = 500 -- Trigger CursorHold event faster.
 
 opt.fillchars = "eob: " -- remove all ~ symbols
 
+opt.pumheight = 8 -- cmp window height
+
+opt.scrolloff = 8 -- annoying scroll fix
+
+-- presistent undo
 opt.swapfile = false
 opt.backup = false
-opt.laststatus = 0
-opt.pumheight = 8
+opt.undofile = true
 
--- actually does need to be here, trust.
+-- actually do need them here, trust.
 opt.termguicolors = true
 g.material_style = "deep ocean"
 cmd.colorscheme("material")
