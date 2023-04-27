@@ -47,6 +47,8 @@ opt.swapfile = false
 opt.backup = false
 opt.undofile = true
 
+opt.laststatus = 0 -- removing statusline 🤤
+
 -- actually do need them here, trust.
 opt.termguicolors = true
 g.material_style = "deep ocean"

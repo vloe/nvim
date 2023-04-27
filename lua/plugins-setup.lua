@@ -63,7 +63,7 @@ return packer.startup(function(use)
 	-- git stuff
 	use("zbirenbaum/copilot.lua")
 	use("lewis6991/gitsigns.nvim")
-	use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
+	use("zbirenbaum/copilot-cmp")
 
 	if packer_bootstrap then
 		require("packer").sync()
