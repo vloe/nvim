@@ -11,6 +11,8 @@ require("plugins.luasnip")
 require("plugins.toggleterm")
 require("plugins.gitsigns")
 require("plugins.copilot")
+require("plugins.autopairs")
+require("plugins.autotag")
 
 -- Color scheme
 vim.opt.termguicolors = true

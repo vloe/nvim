@@ -65,6 +65,10 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("zbirenbaum/copilot-cmp")
 
+	-- autoclose stuff
+	use("windwp/nvim-ts-autotag")
+	use("windwp/nvim-autopairs")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
