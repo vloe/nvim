@@ -11,8 +11,10 @@ toggleterm.setup({
 	shade_terminals = true,
 	shading_factor = "1",
 	start_in_insert = true,
+	hide_numbers = true,
 	persist_size = true,
 	direction = "horizontal",
+	close_on_exit = true,
 })
 
 -- configure keymaps
