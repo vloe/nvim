@@ -15,6 +15,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
+vim.opt.termguicolors = true -- colors...
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -48,8 +49,3 @@ opt.backup = false
 opt.undofile = true
 
 opt.laststatus = 0 -- removing statusline 🤤
-
--- actually do need them here, trust.
-opt.termguicolors = true
-g.material_style = "deep ocean"
-cmd.colorscheme("material")

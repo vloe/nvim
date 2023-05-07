@@ -13,8 +13,3 @@ require("plugins.gitsigns")
 require("plugins.copilot")
 require("plugins.autopairs")
 require("plugins.autotag")
-
--- Color scheme
-vim.opt.termguicolors = true
-vim.g.material_style = "deep ocean"
-vim.cmd.colorscheme("material")

@@ -44,7 +44,7 @@ return packer.startup(function(use)
 	use("famiu/bufdelete.nvim")
 
 	-- color scheme
-	use("marko-cerovac/material.nvim")
+	use("rebelot/kanagawa.nvim")
 
 	-- lsp stuff
 	use("hrsh7th/cmp-nvim-lsp")
