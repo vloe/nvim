@@ -55,6 +55,7 @@ require("kanagawa").setup({
 			NvimTreeSpecialFile = { underline = true, italic = true, fg = GRAY },
 			NvimTreeNormalFloat = { bg = DARK_BLUE },
 			NvimTreeCursorLine = { bg = DARK_BLUE },
+			NvimTreeIndentMarker = { fg = GRAY },
 		}
 	end,
 })
