@@ -83,6 +83,19 @@ require("lspconfig")["tailwindcss"].setup({
 	capabilities = capabilities,
 })
 
+local has_root = function(root_files)
+	return function(utils)
+		return utils.root_has_file(root_files)
+	end
+end
+
+local js_conf = function(root_files)
+	return {
+		only_local = "node_modules/.bin",
+		condition = has_root(root_files),
+	}
+end
+
 null_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -100,11 +113,20 @@ null_ls.setup({
 				"prisma",
 				"markdown",
 			},
-			only_local = "node_modules/.bin",
+			js_conf({
+				".prettierrc",
+				".prettierrc.cjs",
+				".prettierrc.js",
+				".prettierrc.json",
+				"prettier.config.js",
+			}),
 		}),
-		null_ls.builtins.diagnostics.eslint.with({
-			only_local = "node_modules/.bin",
-		}),
+		null_ls.builtins.diagnostics.eslint.with(js_conf({
+			".eslintrc",
+			".eslintrc.cjs",
+			".eslintrc.js",
+			".eslintrc.json",
+		})),
 		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.formatting.stylua,
 	},

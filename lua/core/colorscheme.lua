@@ -16,7 +16,7 @@ local cmd = vim.api.nvim_command
 colors.main.pink = "#ff9cac"
 
 material.setup({
-	styles = {                   
+	styles = {
 		comments = {
 			italic = true,
 		},
@@ -25,12 +25,11 @@ material.setup({
 		"nvim-cmp",
 		"nvim-tree",
 		"gitsigns",
-		"trouble",
 	},
 	disable = {
 		colored_cursor = true,
 		term_colors = true,
-		borders = true,
+		borders = false,
 	},
 	custom_highlights = {
 		-- Common
@@ -42,8 +41,6 @@ material.setup({
 		DiffText = { bg = "#5b7881" },
 		Search = { fg = colors.main.white, bg = colors.syntax.comments },
 		IncSearch = { fg = colors.main.white, bg = colors.syntax.comments },
-		StatusLine = { fg = colors.editor.bg, bg = colors.editor.fg },
-		StatusLineNC = { fg = colors.editor.bg, bg = colors.editor.fg },
 		LspReferenceText = { bg = "#1F2233" },
 		LspReferenceRead = { bg = "#1F2233" },
 		LspReferenceWrite = { bg = "#1F2233" },
@@ -53,11 +50,11 @@ material.setup({
 		PmenuThumb = { bg = colors.editor.fg },
 		NormalFloat = { bg = colors.editor.border },
 		PreProc = { fg = colors.main.pink },
-		MsgArea = { bg = "#1e2030" },
+		MsgArea = { bg = colors.editor.bg },
 		String = { fg = colors.main.purple },
 		Boolean = { fg = colors.main.pink },
-		StatusLine = { bg = "#161926" },
-		StatusLineNC = { bg = "#161926" },
+		StatusLine = { bg = colors.editor.bg },
+		StatusLineNC = { bg = colors.editor.bg },
 
 		-- Git Commit Messages
 		gitcommitHeader = { fg = colors.main.purple },
@@ -70,7 +67,6 @@ material.setup({
 		gitcommitDiscardedType = { fg = colors.main.purple },
 
 		-- NvimTree
-		NvimTreeNormal = { bg = "#161926" },
 		NvimTreeIndentMarker = {},
 		NvimTreeFolderName = {},
 		NvimTreeOpenedFolderName = {},
@@ -81,12 +77,12 @@ material.setup({
 		NvimTreeGitNew = { fg = colors.main.purple },
 		NvimTreeGitDeleted = { fg = colors.main.purple },
 		NvimTreeGitIgnored = { fg = colors.syntax.comments },
-		NvimTreeRootFolder = { bold = true },
+		NvimTreeRootFolder = { bold = false },
 		NvimTreeSpecialFile = { underline = true, italic = true },
 
 		-- Bufferline
 		BufferlineBufferSelected = {},
-		BufferlineFill = { bg = "#161926" },
+		BufferlineFill = { bg = colors.editor.bg },
 
 		-- Cmp
 		CmpItemMenu = { fg = colors.main.gray },
