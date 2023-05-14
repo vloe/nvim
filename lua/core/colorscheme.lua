@@ -10,7 +10,6 @@ local PINK = "#af73c8"
 local RED = "#EF4444"
 local GRAY = "#b2b2b2"
 
--- Default options:
 require("kanagawa").setup({
 	colors = {
 		theme = {
@@ -25,7 +24,7 @@ require("kanagawa").setup({
 			fujiWhite = GRAY,
 		},
 	},
-	overrides = function(colors) -- add/modify highlights
+	overrides = function(colors)
 		return {
 
 			-- Bufferline

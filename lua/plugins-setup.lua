@@ -43,10 +43,10 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim")
 	use("famiu/bufdelete.nvim")
 
-	-- color scheme
+	-- colorscheme
 	use("rebelot/kanagawa.nvim")
 
-	-- lsp stuff
+	-- lsp
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-path")
@@ -55,17 +55,17 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("neovim/nvim-lspconfig")
 
-	-- other terminal window stuff
+	-- terminal window
 	use("akinsho/toggleterm.nvim")
 	use("christoomey/vim-tmux-navigator")
 	use("nvim-tree/nvim-tree.lua")
 
-	-- git stuff
+	-- git
 	use("zbirenbaum/copilot.lua")
 	use("lewis6991/gitsigns.nvim")
 	use("zbirenbaum/copilot-cmp")
 
-	-- autoclose stuff
+	-- autoclose
 	use("windwp/nvim-ts-autotag")
 	use("windwp/nvim-autopairs")
 
