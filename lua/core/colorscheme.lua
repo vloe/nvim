@@ -50,11 +50,13 @@ require("kanagawa").setup({
 			NvimTreeGitDeleted = { fg = PINK },
 			NvimTreeFolderName = { fg = GRAY },
 			NvimTreeOpenedFolderName = { fg = GRAY },
+			NvimTreeEmptyFolderName = { fg = GRAY },
 			NvimTreeRootFolder = { fg = GRAY, italic = true },
 			NvimTreeSpecialFile = { underline = true, italic = true, fg = GRAY },
 			NvimTreeNormalFloat = { bg = DARK_BLUE },
 			NvimTreeCursorLine = { bg = DARK_BLUE },
 			NvimTreeIndentMarker = { fg = GRAY },
+			NvimTreeImageFile = { fg = GRAY },
 		}
 	end,
 })
