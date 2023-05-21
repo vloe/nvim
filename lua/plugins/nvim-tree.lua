@@ -49,7 +49,7 @@ nvimtree.setup({
 				},
 			},
 		},
-		special_files = { "README.md" },
+		special_files = { "README.md", "readme.md" },
 	},
 })
 

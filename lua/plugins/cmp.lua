@@ -1,16 +1,14 @@
+-- safe imports
 local status, cmp = pcall(require, "cmp")
 if not status then
 	print("cmp not installed")
 	return
 end
-
 local status, luasnip = pcall(require, "luasnip")
 if not status then
-	print("Luasnip not installed")
+	print("luasnip not installed")
 	return
 end
-
-local fn = vim.fn
 
 local kind_icons = {
 	Text = "",
@@ -42,26 +40,32 @@ local kind_icons = {
 }
 
 cmp.setup({
-	completion = {
-		completeopt = "menu,menuone,noinsert",
-	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
 		end,
 	},
 	window = {
+		completion = cmp.config.window.bordered(),
 		documentation = {
 			max_width = 0,
 			max_height = 0,
 		},
+	},
+	mapping = {
+		["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item()),
+		["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item()),
+		["<Tab>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(_, item)
 			local label_width = 20
 			local label = item.abbr
-			local truncated_label = fn.strcharpart(label, 0, label_width)
+			local truncated_label = vim.fn.strcharpart(label, 0, label_width)
 
 			if truncated_label ~= label then
 				item.abbr = truncated_label .. "…"
@@ -75,19 +79,13 @@ cmp.setup({
 			return item
 		end,
 	},
-	mapping = {
-		["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item()),
-		["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item()),
-		["<Tab>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
-	},
 	sources = cmp.config.sources({
-		{ name = "copilot", group_index = 2 },
-		{ name = "nvim_lsp", group_index = 2 },
-		{ name = "luasnip", group_index = 2 },
-		{ name = "buffer", group_index = 2 },
-		{ name = "path", group_index = 2 },
+		{ name = "copilot" },
+		{ name = "nvim_lsp" },
+		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "cmp_tabnine" },
+		{ name = "nvim_lua" },
+		{ name = "luasnip" },
 	}),
 })

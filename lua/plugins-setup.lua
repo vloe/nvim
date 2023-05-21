@@ -47,23 +47,28 @@ return packer.startup(function(use)
 	use("rebelot/kanagawa.nvim")
 
 	-- lsp
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-buffer")
-	use("L3MON4D3/LuaSnip")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("neovim/nvim-lspconfig")
 
-	-- terminal window
+	-- cmp
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/cmp-nvim-lua")
+	use("zbirenbaum/copilot.lua")
+	use("zbirenbaum/copilot-cmp")
+	use("L3MON4D3/LuaSnip")
+	use("saadparwaiz1/cmp_luasnip")
+
+	-- other window things
 	use("akinsho/toggleterm.nvim")
 	use("christoomey/vim-tmux-navigator")
 	use("nvim-tree/nvim-tree.lua")
 
 	-- git
-	use("zbirenbaum/copilot.lua")
 	use("lewis6991/gitsigns.nvim")
-	use("zbirenbaum/copilot-cmp")
 
 	-- autoclose
 	use("windwp/nvim-ts-autotag")

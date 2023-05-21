@@ -1,6 +1,6 @@
 local status, bufferline = pcall(require, "bufferline")
 if not status then
-	print("Bufferline not installed")
+	print("bufferline not installed")
 	return
 end
 
