@@ -27,6 +27,10 @@ require("kanagawa").setup({
 	overrides = function(colors)
 		return {
 
+			-- float windows
+			NormalFloat = { bg = DARK_BLUE },
+			FloatBorder = { bg = "none", fg = GRAY },
+
 			-- Bufferline
 			BufferlineFill = { bg = DARK_BLUE },
 

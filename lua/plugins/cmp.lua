@@ -13,7 +13,7 @@ end
 local kind_icons = {
 	Text = "",
 	Method = "",
-	Function = "",
+	Function = "",
 	Constructor = "",
 	Field = "ﰠ",
 	Variable = "",
@@ -46,7 +46,9 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered({
+			scrollbar = false,
+		}),
 		documentation = {
 			max_width = 0,
 			max_height = 0,
@@ -63,7 +65,7 @@ cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(_, item)
-			local label_width = 20
+			local label_width = 45
 			local label = item.abbr
 			local truncated_label = vim.fn.strcharpart(label, 0, label_width)
 

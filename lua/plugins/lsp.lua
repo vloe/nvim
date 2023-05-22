@@ -47,16 +47,24 @@ local on_attach = function(client, bufnr)
 		silent = true,
 	}
 
+	local float_window_width = 45
+
 	keymap.set("n", "K", function()
 		lsp.buf.hover()
 	end, map_opts)
+
+	lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
+		border = "rounded",
+		width = float_window_width,
+	})
 
 	keymap.set("n", "J", function()
 		diagnostic.open_float(0, {
 			source = "always",
 			scope = "line",
 			header = false,
-			width = 60,
+			width = float_window_width,
+			border = "rounded",
 		})
 	end, map_opts)
 end
