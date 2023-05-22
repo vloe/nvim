@@ -63,7 +63,6 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- other window things
-	use("akinsho/toggleterm.nvim")
 	use("christoomey/vim-tmux-navigator")
 	use("nvim-tree/nvim-tree.lua")
 
