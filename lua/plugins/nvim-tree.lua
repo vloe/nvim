@@ -10,6 +10,13 @@ vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup({
 	hijack_cursor = true, -- keeps the cursor on the first letter of filename while navigating.
+	disable_netrw = true,
+	hijack_netrw = true,
+	hijack_unnamed_buffer_when_opening = false,
+	hijack_directories = {
+		enable = true,
+		auto_open = false,
+	},
 	actions = {
 		open_file = {
 			resize_window = true, -- resizes the tree when opening a file.
@@ -25,7 +32,13 @@ nvimtree.setup({
 
 	renderer = {
 		highlight_git = true,
-		root_folder_modifier = ":t", -- makes root folder look nicer, trust.
+		root_folder_label = function(path)
+			local project = vim.fn.fnamemodify(path, ":t")
+			return string.upper(project)
+		end,
+		indent_markers = {
+			enable = true,
+		},
 		icons = {
 			glyphs = {
 				default = "",

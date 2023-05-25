@@ -74,6 +74,9 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("windwp/nvim-autopairs")
 
+	-- indentline
+	use("lukas-reineke/indent-blankline.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
