@@ -34,15 +34,15 @@ kanagawa.setup({
 	overrides = function(colors)
 		return {
 
-			-- float windows
-			NormalFloat = { bg = BG },
-			FloatBorder = { bg = "none", fg = GRAY },
+			--general
+			Visual = { bg = ALMOST_BG },
+			ModeMsg = { fg = c.oniViolet },
 
 			-- bufferline
 			BufferlineFill = { bg = BG },
 			BufferlineBackground = { bg = BG },
-			BufferlineSeparator = { bg = BG, fg = STRONG_FADED_GRAY },
-			BufferlineSeparatorVisible = { bg = BG, fg = STRONG_FADED_GRAY },
+			BufferlineSeparator = { bg = BG, fg = BG },
+			BufferlineSeparatorVisible = { bg = BG, fg = BG },
 			BufferLineBufferSelected = { fg = GRAY, bold = true },
 			BufferLineBufferVisible = { fg = GRAY, bold = true },
 
@@ -56,6 +56,7 @@ kanagawa.setup({
 			GitSignsChange = { fg = c.oniViolet },
 			GitSignsChangeNr = { fg = c.oniViolet },
 			GitSignsChangeLn = { fg = c.oniViolet },
+			GitSignsCurrentLineBlame = { fg = FADED_GRAY },
 
 			-- NvimTree
 			NvimTreeGitDirty = { fg = c.oniViolet },
