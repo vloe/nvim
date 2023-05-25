@@ -1,4 +1,4 @@
-![image](https://vloe-nvim.s3.amazonaws.com/nvim.png)
+![image](https://vloe-nvim.s3.amazonaws.com/nvim-preview.png)
 
 ## Overview
 
