@@ -43,8 +43,9 @@ kanagawa.setup({
 			BufferlineBackground = { bg = BG },
 			BufferlineSeparator = { bg = BG, fg = BG },
 			BufferlineSeparatorVisible = { bg = BG, fg = BG },
-			BufferLineBufferSelected = { fg = GRAY, bold = true },
-			BufferLineBufferVisible = { fg = GRAY, bold = true },
+			BufferlineBufferSelected = { bg = BG, fg = GRAY, bold = true },
+			BufferlineBufferVisible = { bg = BG, fg = GRAY, bold = true },
+			BufferlineModified = { bg = BG },
 
 			-- indentline
 			IndentBlanklineChar = { fg = ALMOST_BG },

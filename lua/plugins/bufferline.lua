@@ -9,7 +9,6 @@ bufferline.setup({
 		always_show_bufferline = true,
 		show_buffer_close_icons = false,
 		enforce_regular_tabs = true,
-		modified_icon = "",
 		offsets = {
 			{
 				filetype = "NvimTree",
@@ -18,5 +17,6 @@ bufferline.setup({
 		indicator = {
 			style = "none",
 		},
+		modified_icon = "",
 	},
 })
