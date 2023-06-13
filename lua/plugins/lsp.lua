@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				lsp.buf.formatting_seq_sync()
+				lsp.buf.format({ async = false })
 			end,
 		})
 	end
@@ -108,8 +108,10 @@ null_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	sources = {
-		null_ls.builtins.formatting.prettier.with({
-			extra_filetypes = { "svelte" },
+		-- format
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettierd.with({
+			extra_filetypes = { "svelte", "toml" },
 			js_conf({
 				".prettierrc",
 				".prettierrc.cjs",
@@ -118,13 +120,28 @@ null_ls.setup({
 				"prettier.config.js",
 			}),
 		}),
-		null_ls.builtins.diagnostics.eslint.with(js_conf({
+		null_ls.builtins.formatting.eslint_d.with(js_conf({
 			".eslintrc",
 			".eslintrc.cjs",
 			".eslintrc.js",
 			".eslintrc.json",
 		})),
+
+		-- diagnostics
+		null_ls.builtins.diagnostics.eslint_d.with(js_conf({
+			".eslintrc",
+			".eslintrc.cjs",
+			".eslintrc.js",
+			".eslintrc.json",
+		})),
+
+		-- code actions
 		null_ls.builtins.code_actions.gitsigns,
-		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.code_actions.eslint_d.with(js_conf({
+			".eslintrc",
+			".eslintrc.cjs",
+			".eslintrc.js",
+			".eslintrc.json",
+		})),
 	},
 })
