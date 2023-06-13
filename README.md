@@ -12,7 +12,7 @@
     - `Font`: [SauceCodePro Nerd Font](https://www.nerdfonts.com/font-downloads)
     - `Font size`: 15
 - Profiles/Window/`Custom window title`: True (and i've got it empty)
-- General/Services/`Update to Beta test release`s: True (to be able to have squiggly lines)
+- General/Services/`Update to Beta test releases`: True (to be able to have squiggly lines)
 
 ## Credits
 
