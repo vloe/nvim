@@ -17,26 +17,23 @@ toggleterm.setup({
 	close_on_exit = true,
 })
 
-function is_toggleterm()
-	local bufname = vim.api.nvim_buf_get_name(0)
-	return string.find(bufname, "toggleterm") ~= nil
-end
+local keymap = vim.keymap
+local api = vim.api
+local opts = { buffer = 0 }
 
--- configure keymaps
 function _G.set_terminal_keymaps()
-	local opts = { buffer = 0 }
-	-- disable paste
-	vim.keymap.set({ "n" }, "p", function()
-		if is_toggleterm() then
-			return "<nop>"
-		else
-			return "p"
-		end
-	end, { silent = true })
-	vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-	vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-	vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-	vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+	-- disable paste inside toggleterm
+	local bufnr = api.nvim_get_current_buf()
+	local bufname = api.nvim_buf_get_name(bufnr)
+	if string.find(bufname, "toggleterm") then
+		keymap.set("n", "p", "<Nop>", opts)
+	end
+
+	-- navigation
+	keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+	keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+	keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+	keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
