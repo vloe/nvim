@@ -20,6 +20,7 @@ toggleterm.setup({
 -- configure keymaps
 function _G.set_terminal_keymaps()
 	local opts = { buffer = 0 }
+	vim.keymap.set({ "n", "i", "v", "t", "x" }, "p", "<nop>") -- disable paste
 	vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
 	vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
 	vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
