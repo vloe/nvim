@@ -75,6 +75,12 @@ kanagawa.setup({
 			NvimTreeCursorLine = { bg = ALMOST_BG },
 			NvimTreeIndentMarker = { fg = STRONG_FADED_GRAY },
 			NvimTreeImageFile = { fg = WHITE },
+			NvimTreeFolderIcon = { fg = GRAY },
+			NvimTreeFolderIconOpen = { fg = GRAY },
+			NvimTreeFolderSymlink = { fg = GRAY },
+			NvimTreeDefault = { fg = GRAY },
+			NvimTreeSymlink = { fg = GRAY },
+			NvimTreeBookmark = { fg = GRAY },
 		}
 	end,
 })

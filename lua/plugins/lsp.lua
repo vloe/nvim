@@ -1,4 +1,3 @@
--- safe imports
 local status, cmp_capabilities = pcall(require, "cmp_nvim_lsp")
 if not status then
 	print("cmp_nvim_lsp not installed")

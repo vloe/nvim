@@ -1,4 +1,3 @@
--- safe imports
 local status, cmp = pcall(require, "cmp")
 if not status then
 	print("cmp not installed")

@@ -80,6 +80,9 @@ return packer.startup(function(use)
 	-- discord presence
 	use("andweeb/presence.nvim")
 
+	-- icons
+	use("nvim-tree/nvim-web-devicons")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

@@ -1,4 +1,4 @@
-local status, nvimtree = pcall(require, "nvim-tree")
+local status, tree = pcall(require, "nvim-tree")
 if not status then
 	print("nvim-tree not installed")
 	return
@@ -8,7 +8,7 @@ end
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-nvimtree.setup({
+tree.setup({
 	hijack_cursor = true, -- keeps the cursor on the first letter of filename while navigating.
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -41,9 +41,9 @@ nvimtree.setup({
 		},
 		icons = {
 			glyphs = {
-				default = "",
-				symlink = "",
-				bookmark = "",
+				default = "󰦨",
+				symlink = "󰦨",
+				bookmark = "󰦨",
 				git = {
 					unstaged = "",
 					staged = "",
@@ -54,15 +54,15 @@ nvimtree.setup({
 					ignored = "",
 				},
 				folder = {
-					default = "",
-					open = "",
-					symlink = "",
+					default = "",
+					open = "",
+					symlink = "",
 					arrow_closed = "", -- arrow when folder is closed
 					arrow_open = "", -- arrow when folder is open
 				},
 			},
 		},
-		special_files = { "README.md", "readme.md" },
+		special_files = { "README.md" },
 	},
 })
 
