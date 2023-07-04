@@ -27,7 +27,7 @@ tree.setup({
 	},
 	view = {
 		side = "right",
-		width = 32,
+		width = 36,
 	},
 
 	renderer = {
