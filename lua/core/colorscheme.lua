@@ -3,6 +3,11 @@ if not status then
 	print("kanagawa colorscheme not found!")
 	return
 end
+local status, icons = pcall(require, "nvim-web-devicons")
+if not status then
+	print("nvim-web-devicons not installed")
+	return
+end
 
 -- palette colors
 local c = require("kanagawa.colors").setup({ theme = "wave" }).palette
@@ -32,20 +37,20 @@ kanagawa.setup({
 		},
 	},
 	overrides = function(colors)
-		return {
+		local overrides = {
 
 			--general
 			Visual = { bg = ALMOST_BG },
 			ModeMsg = { fg = c.oniViolet },
 
 			-- bufferline
-			BufferlineFill = { bg = BG },
-			BufferlineBackground = { bg = BG },
-			BufferlineSeparator = { bg = BG, fg = BG },
-			BufferlineSeparatorVisible = { bg = BG, fg = BG },
-			BufferlineBufferSelected = { bg = BG, fg = GRAY, bold = true },
-			BufferlineBufferVisible = { bg = BG, fg = GRAY, bold = true },
-			BufferlineModified = { bg = BG },
+			BufferLineFill = { bg = BG },
+			BufferLineBackground = { bg = BG, fg = FADED_GRAY },
+			BufferLineSeparator = { fg = BG },
+			BufferLineModified = { fg = BG },
+			BufferlineBufferSelected = { fg = GRAY },
+			BufferlineBufferVisible = { fg = GRAY },
+			BufferLineIndicatorVisible = { fg = BG },
 
 			-- indentline
 			IndentBlanklineChar = { fg = ALMOST_BG },
@@ -82,6 +87,19 @@ kanagawa.setup({
 			NvimTreeSymlink = { fg = GRAY },
 			NvimTreeBookmark = { fg = GRAY },
 		}
+
+		-- change color of icons
+		local new_icons = {}
+		for key, icon in pairs(icons.get_icons()) do
+			icon.color = "#80838f"
+			new_icons[key] = icon
+			overrides["BufferLineDevIcon" .. icon.name] = { bg = BG, fg = FADED_GRAY }
+			overrides["BufferLineDevIcon" .. icon.name .. "Selected"] = { bg = BG, fg = GRAY }
+			overrides["BufferLineDevIcon" .. icon.name .. "Inactive"] = { bg = BG, fg = GRAY }
+		end
+		icons.set_icon(new_icons)
+
+		return overrides
 	end,
 })
 
