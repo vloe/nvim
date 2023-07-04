@@ -45,11 +45,11 @@ kanagawa.setup({
 
 			-- bufferline
 			BufferLineFill = { bg = BG },
-			BufferLineBackground = { bg = BG, fg = FADED_GRAY },
+			BufferLineBackground = { bg = BG, fg = FADED_GRAY }, -- unactive tabs to faded gray
 			BufferLineSeparator = { fg = BG },
 			BufferLineModified = { fg = BG },
-			BufferlineBufferSelected = { fg = GRAY },
-			BufferlineBufferVisible = { fg = GRAY },
+			BufferlineBufferSelected = { fg = GRAY }, -- active tabs to gray
+			BufferlineBufferVisible = { fg = GRAY }, -- active tabs to gray
 			BufferLineIndicatorVisible = { fg = BG },
 
 			-- indentline
@@ -91,11 +91,10 @@ kanagawa.setup({
 		-- change color of icons
 		local new_icons = {}
 		for key, icon in pairs(icons.get_icons()) do
-			icon.color = "#80838f"
+			icon.color = GRAY
 			new_icons[key] = icon
-			overrides["BufferLineDevIcon" .. icon.name] = { bg = BG, fg = FADED_GRAY }
-			overrides["BufferLineDevIcon" .. icon.name .. "Selected"] = { bg = BG, fg = GRAY }
-			overrides["BufferLineDevIcon" .. icon.name .. "Inactive"] = { bg = BG, fg = GRAY }
+			overrides["BufferLineDevIcon" .. icon.name] = { bg = BG, fg = FADED_GRAY } -- unactive tabs to faded gray
+			overrides["BufferLineDevIcon" .. icon.name .. "Selected"] = { bg = BG, fg = GRAY } -- active tabs to gray
 		end
 		icons.set_icon(new_icons)
 
