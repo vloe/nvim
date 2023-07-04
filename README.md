@@ -1,16 +1,16 @@
-![image](https://vloe-nvim.s3.amazonaws.com/nvim-preview.png)
+![image](https://pub-17a0349a6dd0473f8502957f5c524d98.r2.dev/preview.png)
 
 ## iTerm2 settings
 
 - Appearance/General/`Theme`: Minimal
 - Appearance/Windows/`Hide scrollbars`: True
 - Appearance/Panes/
-    - `Side margins`: 1
-    - `Top & bottom margins`: 2
+  - `Side margins`: 1
+  - `Top & bottom margins`: 2
 - Profiles/Colors/`Background`: 17181b
 - Profiles/Text/
-    - `Font`: [SauceCodePro Nerd Font](https://www.nerdfonts.com/font-downloads)
-    - `Font size`: 15
+  - `Font`: [SauceCodePro Nerd Font](https://www.nerdfonts.com/font-downloads)
+  - `Font size`: 15
 - Profiles/Window/`Custom window title`: True (and i've got it empty)
 - General/Services/`Update to Beta test releases`: True (to be able to have squiggly lines)
 
