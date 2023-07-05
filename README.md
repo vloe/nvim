@@ -1,8 +1,6 @@
 ![image](https://pub-17a0349a6dd0473f8502957f5c524d98.r2.dev/preview.png)
 
-## Getting started
-
-### Clone repository
+## Clone repository
 
 Make sure to backup your current config. Then clone this repository to `~/.config/nvim`.
 
@@ -10,7 +8,7 @@ Make sure to backup your current config. Then clone this repository to `~/.confi
 git clone https://github.com/vloe/nvim ~/.config/nvim
 ```
 
-### Install plugins
+## Install plugins
 
 Navigate to the nvim config.
 
@@ -24,7 +22,7 @@ Then run `PackerSync` to install all the plugins.
 :PackerSync
 ```
 
-### Install null-ls builtins
+## Install null-ls builtins
 
 Install [eslint_d](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/07897774c3b2f14d71b2ca51f3014d1055da9657/doc/BUILTINS.md#eslint_d) for diagnostics and code actions.
 
@@ -44,7 +42,7 @@ Install [stylua](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/0789777
 brew install stylua
 ```
 
-### Install lspconfig language servers
+## Install lspconfig language servers
 
 Install [typescript](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver) language server.
 
