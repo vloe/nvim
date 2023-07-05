@@ -24,7 +24,7 @@ Then run `PackerSync` to install all the plugins.
 :PackerSync
 ```
 
-### Install [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) builtins
+### Install null-ls builtins
 
 Install [eslint_d](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/07897774c3b2f14d71b2ca51f3014d1055da9657/doc/BUILTINS.md#eslint_d) for diagnostics and code actions.
 
@@ -44,7 +44,7 @@ Install [stylua](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/0789777
 brew install stylua
 ```
 
-### Install [lspconfig](https://github.com/neovim/nvim-lspconfig) language servers
+### Install lspconfig language servers
 
 Install [typescript](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver) language server.
 
