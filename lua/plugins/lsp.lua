@@ -110,7 +110,7 @@ null_ls.setup({
 		-- format
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd.with({
-			extra_filetypes = { "svelte", "toml" },
+			extra_filetypes = { "svelte" },
 			js_conf({
 				".prettierrc",
 				".prettierrc.cjs",
@@ -119,28 +119,28 @@ null_ls.setup({
 				"prettier.config.js",
 			}),
 		}),
-		null_ls.builtins.formatting.eslint_d.with(js_conf({
-			".eslintrc",
-			".eslintrc.cjs",
-			".eslintrc.js",
-			".eslintrc.json",
-		})),
 
 		-- diagnostics
-		null_ls.builtins.diagnostics.eslint_d.with(js_conf({
-			".eslintrc",
-			".eslintrc.cjs",
-			".eslintrc.js",
-			".eslintrc.json",
-		})),
+		null_ls.builtins.diagnostics.eslint_d.with({
+			extra_filetypes = { "svelte" },
+			js_conf({
+				".eslintrc",
+				".eslintrc.cjs",
+				".eslintrc.js",
+				".eslintrc.json",
+			}),
+		}),
 
 		-- code actions
 		null_ls.builtins.code_actions.gitsigns,
-		null_ls.builtins.code_actions.eslint_d.with(js_conf({
-			".eslintrc",
-			".eslintrc.cjs",
-			".eslintrc.js",
-			".eslintrc.json",
-		})),
+		null_ls.builtins.code_actions.eslint_d.with({
+			extra_filetypes = { "svelte" },
+			js_conf({
+				".eslintrc",
+				".eslintrc.cjs",
+				".eslintrc.js",
+				".eslintrc.json",
+			}),
+		}),
 	},
 })
