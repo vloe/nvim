@@ -3,9 +3,9 @@ if not status then
 	print("kanagawa colorscheme not found!")
 	return
 end
-local status, icons = pcall(require, "nvim-web-devicons")
+local status, icons = pcall(require, "plugins.icons")
 if not status then
-	print("nvim-web-devicons not installed")
+	print("icons not found")
 	return
 end
 
