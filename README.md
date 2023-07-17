@@ -74,6 +74,12 @@ Install [html](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_c
 npm i -g vscode-langservers-extracted
 ```
 
+Install [astro](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#astro) language server.
+
+```sh
+npm i -g @astrojs/language-server
+```
+
 ## iTerm2 settings
 
 - Appearance/General/`Theme`: Minimal

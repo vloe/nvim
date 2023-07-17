@@ -90,6 +90,10 @@ lspconfig.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+lspconfig.astro.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 local has_root = function(root_files)
 	return function(utils)
@@ -110,7 +114,7 @@ null_ls.setup({
 		-- format
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd.with({
-			extra_filetypes = { "svelte" },
+			extra_filetypes = { "svelte", "astro" },
 			js_conf({
 				".prettierrc",
 				".prettierrc.cjs",
