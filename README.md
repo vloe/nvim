@@ -1,6 +1,6 @@
 ![image](https://pub-17a0349a6dd0473f8502957f5c524d98.r2.dev/preview.png)
 
-# Clone repository
+## Clone repository
 
 Make sure to backup your current config. Then clone this repository to `~/.config/nvim`.
 
@@ -8,7 +8,7 @@ Make sure to backup your current config. Then clone this repository to `~/.confi
 git clone https://github.com/vloe/nvim ~/.config/nvim
 ```
 
-## Install plugins
+### Install plugins
 
 Navigate to the nvim config.
 
@@ -22,7 +22,7 @@ Then run `PackerSync` to install all the plugins.
 :PackerSync
 ```
 
-## Install null-ls builtins
+### Install null-ls builtins
 
 ```sh
 npm install -g eslint_d @fsouza/prettierd
@@ -32,7 +32,7 @@ npm install -g eslint_d @fsouza/prettierd
 brew install stylua
 ```
 
-## Install lspconfig language servers
+### Install lspconfig language servers
 
 ```sh
 npm install -g typescript typescript-language-server @tailwindcss/language-server svelte-language-server vscode-langservers-extracted @astrojs/language-server
@@ -42,7 +42,7 @@ npm install -g typescript typescript-language-server @tailwindcss/language-serve
 brew install rust-analyzer
 ```
 
-# iTerm2 settings
+## iTerm2 settings
 
 - Appearance/General/`Theme`: Minimal
 - Appearance/Windows/`Hide scrollbars`: True
@@ -58,7 +58,7 @@ brew install rust-analyzer
 - Profiles/Window/`Custom window title`: True (and i've got it empty)
 - General/Services/`Update to Beta test releases`: True (to be able to have squiggly lines)
 
-# Credits
+## Credits
 
 - lsp/cmp stuff: [kutsan's config](https://github.com/kutsan/dotfiles/tree/master/.config/nvim)
 - design inspo: [alex35mil's config](https://github.com/alex35mil/dotfiles)
