@@ -49,3 +49,5 @@ opt.backup = false
 opt.undofile = true
 
 opt.laststatus = 0 -- removing statusline
+
+opt.cursorline = true -- adding CursorLine and CursorLineNr

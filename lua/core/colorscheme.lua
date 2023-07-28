@@ -40,8 +40,10 @@ kanagawa.setup({
 		local overrides = {
 
 			--general
-			Visual = { bg = ALMOST_BG },
+			Visual = { bg = ALMOST_BG }, -- bg on select
 			ModeMsg = { fg = c.oniViolet },
+			CursorLineNr = { fg = c.oniViolet },
+			CursorLine = { bg = ALMOST_BG },
 
 			-- bufferline
 			BufferLineFill = { bg = BG },
