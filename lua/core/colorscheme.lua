@@ -44,6 +44,7 @@ kanagawa.setup({
 			ModeMsg = { fg = c.oniViolet },
 			CursorLineNr = { fg = c.oniViolet },
 			CursorLine = { bg = ALMOST_BG },
+			WinSeparator = { fg = ALMOST_BG },
 
 			-- bufferline
 			BufferLineFill = { bg = BG },
