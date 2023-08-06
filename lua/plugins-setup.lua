@@ -77,9 +77,6 @@ return packer.startup(function(use)
 	-- indentline
 	use("lukas-reineke/indent-blankline.nvim")
 
-	-- discord presence
-	use("andweeb/presence.nvim")
-
 	-- icons
 	use("nvim-tree/nvim-web-devicons")
 
