@@ -95,18 +95,6 @@ lspconfig.astro.setup({
 	capabilities = capabilities,
 })
 
-local has_root = function(root_files)
-	return function(utils)
-		return utils.root_has_file(root_files)
-	end
-end
-local js_conf = function(root_files)
-	return {
-		only_local = "node_modules/.bin",
-		condition = has_root(root_files),
-	}
-end
-
 null_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -115,36 +103,17 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd.with({
 			extra_filetypes = { "svelte", "astro" },
-			js_conf({
-				".prettierrc",
-				".prettierrc.cjs",
-				".prettierrc.js",
-				".prettierrc.json",
-				"prettier.config.js",
-			}),
 		}),
 
 		-- diagnostics
 		null_ls.builtins.diagnostics.eslint_d.with({
-			extra_filetypes = { "svelte" },
-			js_conf({
-				".eslintrc",
-				".eslintrc.cjs",
-				".eslintrc.js",
-				".eslintrc.json",
-			}),
+			extra_filetypes = { "svelte", "astro" },
 		}),
 
 		-- code actions
 		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.code_actions.eslint_d.with({
-			extra_filetypes = { "svelte" },
-			js_conf({
-				".eslintrc",
-				".eslintrc.cjs",
-				".eslintrc.js",
-				".eslintrc.json",
-			}),
+			extra_filetypes = { "svelte", "astro" },
 		}),
 	},
 })
