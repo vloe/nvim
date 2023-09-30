@@ -61,5 +61,4 @@ brew install rust-analyzer
 ## Credits
 
 - lsp/cmp stuff: [kutsan's config](https://github.com/kutsan/dotfiles/tree/master/.config/nvim)
-- design inspo: [alex35mil's config](https://github.com/alex35mil/dotfiles)
 - config structure: [Josean Martinez's video](https://www.youtube.com/watch?v=vdn_pKJUda8)

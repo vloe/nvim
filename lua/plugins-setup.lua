@@ -74,9 +74,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("windwp/nvim-autopairs")
 
-	-- indentline
-	use("lukas-reineke/indent-blankline.nvim")
-
 	-- icons
 	use("nvim-tree/nvim-web-devicons")
 
