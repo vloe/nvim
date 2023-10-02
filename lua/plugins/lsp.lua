@@ -93,6 +93,11 @@ lspconfig.tailwindcss.setup({
 lspconfig.astro.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	init_options = {
+		typescript = {
+			tsdk = vim.fs.normalize("~/Library/pnpm/global/5/node_modules/typescript/lib"),
+		},
+	},
 })
 
 null_ls.setup({
