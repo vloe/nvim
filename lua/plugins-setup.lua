@@ -9,10 +9,9 @@ local ensure_packer = function()
 	end
 	return false
 end
-local packer_bootstrap = ensure_packer() -- true if packer was just installed
+local packer_bootstrap = ensure_packer()
 
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
+-- update on plugins on save
 vim.cmd([[ 
   augroup packer_user_config
     autocmd!
@@ -20,7 +19,6 @@ vim.cmd([[
   augroup end
 ]])
 
--- import packer safely
 local status, packer = pcall(require, "packer")
 if not status then
 	print("packer not installed")
@@ -34,8 +32,7 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
+			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
 

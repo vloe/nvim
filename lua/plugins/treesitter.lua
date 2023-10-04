@@ -5,9 +5,7 @@ if not status then
 end
 
 treesitter.setup({
-	highlight = {
-		enable = true,
-	},
+	highlight = { enable = true },
 	indent = { enable = true },
 	autotag = { enable = true },
 	ensure_installed = {
@@ -28,6 +26,9 @@ treesitter.setup({
 		"vim",
 		"dockerfile",
 		"gitignore",
+		"astro",
+		"go",
+		"python",
 	},
 	auto_install = true,
 })
