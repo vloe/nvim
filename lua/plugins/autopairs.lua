@@ -1,19 +1,18 @@
-local status, autopairs = pcall(require, "nvim-autopairs")
-if not autopairs then
-	print("autopairs not installed")
-	return
-end
-local status, cmp = pcall(require, "cmp")
-if not status then
-	print("cmp not installed")
-	return
-end
-local status, autopairs_cmp_completion = pcall(require, "nvim-autopairs.completion.cmp")
-if not status then
-	print("nvim-autopairs.completion.cmp not installed")
-	return
-end
+--[[ 
+	Automatically closes parenthesis, brackets etc... when you type.
 
-autopairs.setup({})
+	Plugin: https://github.com/windwp/nvim-autopairs
+]]
 
-cmp.event:on('confirm_done', autopairs_cmp_completion.on_confirm_done())
+return {
+	"windwp/nvim-autopairs",
+	event = "InsertEnter",
+	dependencies = "hrsh7th/nvim-cmp",
+	config = function()
+		local autopairs_cmp = require("nvim-autopairs.completion.cmp")
+		local cmp = require("cmp")
+
+		-- make autopairs and cmp work together
+		cmp.event:on("confirm_done", autopairs_cmp.on_confirm_done())
+	end,
+}

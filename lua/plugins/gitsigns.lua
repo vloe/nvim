@@ -1,7 +1,11 @@
-local status, gitsigns = pcall(require, "gitsigns")
-if not status then
-	print("gitsigns not installed")
-	return
-end
+--[[ 
+	Git decorations (colors the changes you've not committed).
 
-gitsigns.setup()
+	Plugins: https://github.com/lewis6991/gitsigns.nvim
+]]
+
+return {
+	"lewis6991/gitsigns.nvim",
+	event = { "BufReadPre", "BufNewFile" },
+	config = true,
+}

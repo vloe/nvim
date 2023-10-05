@@ -1,15 +1,19 @@
-local status, icons = pcall(require, "nvim-web-devicons")
-if not status then
-	print("nvim-web-devicons not installed")
-	return
-end
+--[[ 
+	Icons (required: must use nerd fonts for it to work).
 
-icons.set_icon({
-	astro = {
-		icon = "",
-		name = "astro",
-	},
-})
+	Plugins: https://github.com/nvim-tree/nvim-web-devicons
+]]
 
--- need them at colorscheme
-return icons
+return {
+	"nvim-tree/nvim-web-devicons",
+	config = function()
+		local icons = require("nvim-web-devicons")
+
+		icons.set_icon({
+			astro = {
+				icon = "",
+				name = "astro",
+			},
+		})
+	end,
+}

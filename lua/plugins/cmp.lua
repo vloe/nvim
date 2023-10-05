@@ -1,92 +1,115 @@
-local status, cmp = pcall(require, "cmp")
-if not status then
-	print("cmp not installed")
-	return
-end
-local status, luasnip = pcall(require, "luasnip")
-if not status then
-	print("luasnip not installed")
-	return
-end
+--[[ 
+	Code completion (window that pops up with suggestions when you write).
 
-local kind_icons = {
-	Text = "",
-	Method = "",
-	Function = "",
-	Constructor = "",
-	Field = "ﰠ",
-	Variable = "",
-	Class = "ﴯ",
-	Interface = "",
-	Module = "",
-	Property = "ﰠ",
-	Unit = "塞",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "פּ",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
-	Copilot = "",
+	Plugins: 
+		- https://github.com/hrsh7th/nvim-cmp
+		- https://github.com/hrsh7th/cmp-nvim-lsp
+		- https://github.com/L3MON4D3/LuaSnip
+		- https://github.com/saadparwaiz1/cmp_luasnip
+		- https://github.com/hrsh7th/cmp-nvim-lua
+		- https://github.com/hrsh7th/cmp-buffer
+		- https://github.com/hrsh7th/cmp-path
+		- https://github.com/hrsh7th/cmp-cmdline
+]]
+
+return {
+	"hrsh7th/nvim-cmp",
+	event = "InsertEnter",
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-nvim-lua",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+	},
+	config = function()
+		local cmp = require("cmp")
+		local luasnip = require("luasnip")
+
+		local kind_icons = {
+			Text = "",
+			Method = "",
+			Function = "",
+			Constructor = "",
+			Field = "ﰠ",
+			Variable = "",
+			Class = "ﴯ",
+			Interface = "",
+			Module = "",
+			Property = "ﰠ",
+			Unit = "塞",
+			Value = "",
+			Enum = "",
+			Keyword = "",
+			Snippet = "",
+			Color = "",
+			File = "",
+			Reference = "",
+			Folder = "",
+			EnumMember = "",
+			Constant = "",
+			Struct = "פּ",
+			Event = "",
+			Operator = "",
+			TypeParameter = "",
+			Copilot = "",
+		}
+
+		cmp.setup({
+			-- required: must add a snippet engine (luasnip)
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
+			window = {
+				completion = cmp.config.window.bordered({
+					scrollbar = false,
+				}),
+				documentation = {
+					max_width = 0,
+					max_height = 0,
+				},
+			},
+			mapping = {
+				["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item()),
+				["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item()),
+				["<Tab>"] = cmp.mapping.confirm({
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = true,
+				}),
+			},
+			--  set custom icons and truncated labels
+			formatting = {
+				fields = { "kind", "abbr", "menu" },
+				format = function(_, item)
+					local label_width = 45
+					local label = item.abbr
+					local truncated_label = vim.fn.strcharpart(label, 0, label_width)
+
+					if truncated_label ~= label then
+						item.abbr = truncated_label .. "…"
+					elseif string.len(label) < label_width then
+						local padding = string.rep(" ", label_width - string.len(label))
+						item.abbr = label .. padding
+					end
+
+					item.menu = item.kind
+					item.kind = kind_icons[item.kind]
+					return item
+				end,
+			},
+			sources = cmp.config.sources({
+				{ name = "copilot", group_index = 2 },
+				{ name = "nvim_lsp", group_index = 2 },
+				{ name = "luasnip", group_index = 2 },
+				{ name = "nvim_lua", group_index = 2 },
+				{ name = "buffer", group_index = 2 },
+				{ name = "path", group_index = 2 },
+				{ name = "cmdline", group_index = 2 },
+			}),
+		})
+	end,
 }
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end,
-	},
-	window = {
-		completion = cmp.config.window.bordered({
-			scrollbar = false,
-		}),
-		documentation = {
-			max_width = 0,
-			max_height = 0,
-		},
-	},
-	mapping = {
-		["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item()),
-		["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item()),
-		["<Tab>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
-	},
-	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(_, item)
-			local label_width = 45
-			local label = item.abbr
-			local truncated_label = vim.fn.strcharpart(label, 0, label_width)
-
-			if truncated_label ~= label then
-				item.abbr = truncated_label .. "…"
-			elseif string.len(label) < label_width then
-				local padding = string.rep(" ", label_width - string.len(label))
-				item.abbr = label .. padding
-			end
-
-			item.menu = item.kind
-			item.kind = kind_icons[item.kind]
-			return item
-		end,
-	},
-	sources = cmp.config.sources({
-		{ name = "copilot" },
-		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "path" },
-		{ name = "cmp_tabnine" },
-		{ name = "nvim_lua" },
-		{ name = "luasnip" },
-	}),
-})

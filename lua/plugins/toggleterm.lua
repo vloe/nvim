@@ -1,40 +1,44 @@
-local status, toggleterm = pcall(require, "toggleterm")
-if not status then
-	print("toggleterm not installed")
-	return
-end
+--[[ 
+	Small terminal inside of neovim (kind of like the vscode terminal).
 
-toggleterm.setup({
-	size = 7,
-	open_mapping = [[<c-b>]],
-	shade_filetypes = {},
-	shade_terminals = true,
-	shading_factor = "1",
-	start_in_insert = true,
-	hide_numbers = true,
-	persist_size = true,
-	direction = "horizontal",
-	close_on_exit = true,
-})
+	Plugin: https://github.com/nvim-treesitter/nvim-treesitter
+]]
 
-local keymap = vim.keymap
-local api = vim.api
-local opts = { buffer = 0 }
+return {
+	"akinsho/toggleterm.nvim",
+	version = "*",
+	config = function()
+		local toggleterm = require("toggleterm")
 
-function _G.set_terminal_keymaps()
-	-- disable paste inside toggleterm
-	local bufnr = api.nvim_get_current_buf()
-	local bufname = api.nvim_buf_get_name(bufnr)
-	if string.find(bufname, "toggleterm") then
-		keymap.set("n", "p", "<Nop>", opts)
-	end
+		toggleterm.setup({
+			size = 7,
+			open_mapping = [[<c-b>]],
+			start_in_insert = true,
+			hide_numbers = true,
+			persist_size = true,
+			direction = "horizontal",
+			close_on_exit = true,
+		})
 
-	-- navigation
-	keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-	keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-	keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-	keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-end
+		local keymap = vim.keymap
+		local api = vim.api
+		local opts = { buffer = 0 }
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+		-- custom keymaps
+		function _G.set_terminal_keymaps()
+			-- disable paste inside toggleterm
+			local bufnr = api.nvim_get_current_buf()
+			local bufname = api.nvim_buf_get_name(bufnr)
+			if string.find(bufname, "toggleterm") then
+				keymap.set("n", "p", "<Nop>", opts)
+			end
+			-- navigation
+			keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+			keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+			keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+			keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+		end
+
+		vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+	end,
+}
