@@ -1,4 +1,4 @@
-![image](https://pub-17a0349a6dd0473f8502957f5c524d98.r2.dev/preview.png)
+![image](https://pub-17a0349a6dd0473f8502957f5c524d98.r2.dev/Screenshot%202023-10-06%20at%2001.02.46.png)
 
 ## Clone repository
 
