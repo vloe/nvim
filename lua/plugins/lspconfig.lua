@@ -18,7 +18,7 @@ return {
 		local lsp = vim.lsp
 		local opts = { noremap = true, silent = true }
 
-		local on_attach = function(client, bufnr)
+		local on_attach = function(_, bufnr)
 			opts.buffer = bufnr
 			local float_window_width = 45
 
