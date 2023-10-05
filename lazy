@@ -1,0 +1,21 @@
+[main b46d093] packer
+ 23 files changed, 830 insertions(+), 869 deletions(-)
+ rewrite README.md (75%)
+ create mode 100644 lazy-lock.json
+ delete mode 100644 lua/core/colorscheme.lua
+ delete mode 100644 lua/plugins-setup.lua
+ rewrite lua/plugins/autopairs.lua (99%)
+ delete mode 100644 lua/plugins/autotag.lua
+ rewrite lua/plugins/bufferline.lua (98%)
+ rewrite lua/plugins/cmp.lua (99%)
+ create mode 100644 lua/plugins/colorscheme.lua
+ create mode 100644 lua/plugins/conform.lua
+ rewrite lua/plugins/copilot.lua (99%)
+ create mode 100644 lua/plugins/file-explorer.lua
+ create mode 100644 lua/plugins/init.lua
+ delete mode 100644 lua/plugins/lsp.lua
+ create mode 100644 lua/plugins/lspconfig.lua
+ create mode 100644 lua/plugins/mason.lua
+ rewrite lua/plugins/toggleterm.lua (99%)
+ delete mode 100644 lua/plugins/tree.lua
+ rewrite lua/plugins/treesitter.lua (99%)

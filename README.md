@@ -78,4 +78,4 @@ module.exports = {
 
 ## Credits
 
-- Folder structure, lsp and lazy: [Josean Martinez](https://github.com/josean-dev/dev-environment-files)
+- Folder structure, lsp and lazy: [Josean Martinez](https://github.com/josean-dev/dev-environment-files).
