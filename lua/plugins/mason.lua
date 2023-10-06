@@ -37,12 +37,14 @@ return {
 				"svelte",
 				"lua_ls",
 				"pyright",
+				"astro",
 			},
 			automatic_installation = true,
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
+				"prettierd",
 				"prettier",
 				"stylua",
 				"isort",

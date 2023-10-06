@@ -71,17 +71,7 @@ return {
 
 		lspconfig["svelte"].setup({
 			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePost", {
-					pattern = { "*.js", "*.ts" },
-					callback = function(ctx)
-						if client.name == "svelte" then
-							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-						end
-					end,
-				})
-			end,
+			on_attach = on_attach,
 		})
 
 		lspconfig["pyright"].setup({
@@ -95,13 +85,13 @@ return {
 		})
 
 		lspconfig["rust_analyzer"].setup({
-			on_attach = on_attach,
 			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 
-		lspconfig.astro.setup({
-			on_attach = on_attach,
+		lspconfig["astro"].setup({
 			capabilities = capabilities,
+			on_attach = on_attach,
 			init_options = {
 				typescript = {
 					tsdk = vim.fs.normalize("~/Library/pnpm/global/5/node_modules/typescript/lib"),
