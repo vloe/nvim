@@ -22,7 +22,6 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -108,7 +107,6 @@ return {
 				{ name = "nvim_lua", group_index = 2 },
 				{ name = "buffer", group_index = 2 },
 				{ name = "path", group_index = 2 },
-				{ name = "cmdline", group_index = 2 },
 			}),
 		})
 	end,
