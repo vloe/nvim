@@ -24,6 +24,7 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				java = { "google-java-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -31,5 +32,8 @@ return {
 				timeout_ms = 1000,
 			},
 		})
+		conform.formatters["google-java-format"] = {
+			prepend_args = { "--aosp" }, -- 4-space indentation
+		}
 	end,
 }
