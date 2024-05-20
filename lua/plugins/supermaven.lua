@@ -7,6 +7,10 @@
 return {
 	"supermaven-inc/supermaven-nvim",
 	config = function()
-		require("supermaven-nvim").setup({})
+		local supermaven = require("supermaven-nvim")
+		supermaven.setup({
+			disable_inline_completion = true, -- for it to work with cmp
+			disable_keymaps = true, -- disables built in keymaps for more manual control
+		})
 	end,
 }
