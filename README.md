@@ -1,14 +1,14 @@
 ![image](https://pub-17a0349a6dd0473f8502957f5c524d98.r2.dev/Screenshot%202023-10-06%20at%2001.02.46.png)
 
-## Clone repository
+## clone repository
 
-Make sure to backup your current config. Then clone this repository to `~/.config/nvim`.
+make sure to backup your current config. Then clone this repository to `~/.config/nvim`.
 
 ```sh
 git clone https://github.com/vloe/nvim ~/.config/nvim
 ```
 
-## Hyper config
+## hyper config
 
 ```js
 "use strict";
@@ -76,6 +76,6 @@ module.exports = {
 };
 ```
 
-## Credits
+## credits
 
-- Folder structure, lsp and lazy: [Josean Martinez](https://github.com/josean-dev/dev-environment-files).
+- folder structure, lsp and lazy: [Josean Martinez](https://github.com/josean-dev/dev-environment-files).
