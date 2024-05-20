@@ -2,7 +2,7 @@
 
 ## clone repository
 
-make sure to backup your current config. Then clone this repository to `~/.config/nvim`.
+make sure to backup your current config. then clone this repository to `~/.config/nvim`.
 
 ```sh
 git clone https://github.com/vloe/nvim ~/.config/nvim
@@ -78,4 +78,4 @@ module.exports = {
 
 ## credits
 
-- folder structure, lsp and lazy: [Josean Martinez](https://github.com/josean-dev/dev-environment-files).
+- folder structure, lsp and lazy: [josean martinez](https://github.com/josean-dev/dev-environment-files)
