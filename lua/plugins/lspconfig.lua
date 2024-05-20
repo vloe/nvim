@@ -1,7 +1,7 @@
 --[[ 
-	Config for the language servers.
+	lsp config
 
-	Plugins: 
+	plugins: 
     - https://github.com/neovim/nvim-lspconfig
 	- https://github.com/hrsh7th/cmp-nvim-lua
 ]]

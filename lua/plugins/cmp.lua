@@ -1,7 +1,7 @@
 --[[ 
-	Code completion (window that pops up with suggestions when you write).
+	code completion
 
-	Plugins: 
+	plugins: 
 		- https://github.com/hrsh7th/nvim-cmp
 		- https://github.com/hrsh7th/cmp-nvim-lsp
 		- https://github.com/L3MON4D3/LuaSnip
@@ -54,6 +54,7 @@ return {
 			Operator = "",
 			TypeParameter = "",
 			Copilot = "",
+			Supermaven = "",
 		}
 
 		cmp.setup({
@@ -101,6 +102,7 @@ return {
 				end,
 			},
 			sources = cmp.config.sources({
+				{ name = "supermaven", group_index = 2 },
 				{ name = "copilot", group_index = 2 },
 				{ name = "nvim_lsp", group_index = 2 },
 				{ name = "luasnip", group_index = 2 },

@@ -1,7 +1,7 @@
 --[[ 
-	Tabs for your open files.
+	tabs
 
-	Plugin: https://github.com/akinsho/bufferline.nvim 
+	plugin: https://github.com/akinsho/bufferline.nvim 
 ]]
 
 return {

@@ -1,7 +1,7 @@
 --[[ 
-	Small terminal inside of neovim (kind of like the vscode terminal).
+    terminal
 
-	Plugin: https://github.com/nvim-treesitter/nvim-treesitter
+	plugin: https://github.com/nvim-treesitter/nvim-treesitter
 ]]
 
 return {

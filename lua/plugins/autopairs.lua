@@ -1,7 +1,7 @@
 --[[ 
-	Automatically closes parenthesis, brackets etc... when you type.
+	auto-close parenthesis, brackets etc...
 
-	Plugin: https://github.com/windwp/nvim-autopairs
+	plugin: https://github.com/windwp/nvim-autopairs
 ]]
 
 return {

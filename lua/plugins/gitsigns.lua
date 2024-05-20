@@ -1,7 +1,7 @@
 --[[ 
-	Git decorations (colors the changes you've not committed).
+	git signs
 
-	Plugins: https://github.com/lewis6991/gitsigns.nvim
+	plugin: https://github.com/lewis6991/gitsigns.nvim
 ]]
 
 return {

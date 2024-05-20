@@ -1,7 +1,7 @@
 --[[ 
-	Formatter (formats your code on save).
+	formatting (on save)
 
-	Plugin: https://github.com/stevearc/conform.nvim
+	plugin: https://github.com/stevearc/conform.nvim
 ]]
 
 return {

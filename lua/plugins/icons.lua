@@ -1,7 +1,7 @@
 --[[ 
-	Icons (required: must use nerd fonts for it to work).
+	icons (need nerd font for it to work)
 
-	Plugins: https://github.com/nvim-tree/nvim-web-devicons
+	plugin: https://github.com/nvim-tree/nvim-web-devicons
 ]]
 
 return {

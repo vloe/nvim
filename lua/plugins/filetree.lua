@@ -1,7 +1,7 @@
 --[[ 
-	The file explorer.
+	file tree
 
-	Plugin: https://github.com/nvim-tree/nvim-tree.lua
+	plugin: https://github.com/nvim-tree/nvim-tree.lua
 ]]
 
 return {

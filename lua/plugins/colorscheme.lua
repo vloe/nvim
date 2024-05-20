@@ -1,7 +1,7 @@
 --[[ 
-	Colorscheme!
+	colorscheme
 
-	Plugin: https://github.com/rebelot/kanagawa.nvim
+	plugin: https://github.com/rebelot/kanagawa.nvim
 ]]
 
 return {

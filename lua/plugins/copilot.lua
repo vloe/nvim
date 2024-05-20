@@ -1,7 +1,7 @@
 --[[ 
-	Github copilot!
+	github copilot
 
-	Plugins: 
+	plugins: 
 		- https://github.com/zbirenbaum/copilot.lua
 		- https://github.com/zbirenbaum/copilot-cmp
 ]]
