@@ -22,6 +22,11 @@ return {
 			opts.buffer = bufnr
 			local float_window_width = 45
 
+			-- go to definition
+			keymap.set("n", "gd", function()
+				lsp.buf.definition()
+			end, opts)
+
 			-- hover
 			keymap.set("n", "K", function()
 				lsp.buf.hover()
