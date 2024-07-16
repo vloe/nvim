@@ -24,6 +24,7 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				toml = { "taplo" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
