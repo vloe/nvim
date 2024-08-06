@@ -10,7 +10,7 @@ return {
 	config = function()
 		local file_explorer = require("nvim-tree")
 
-		-- disable netrw (built-in nvim file explorer)
+		-- disable netrw (built-in nvim file tree)
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
@@ -22,14 +22,14 @@ return {
 			},
 			view = {
 				side = "right",
-				width = 36,
+				width = 40,
 			},
 			renderer = {
 				highlight_git = true,
-				-- root folder in uppercase hack
+				-- root folder hack
 				root_folder_label = function(path)
 					local project = vim.fn.fnamemodify(path, ":t")
-					return string.upper(project)
+					return string.lower(project)
 				end,
 				icons = {
 					glyphs = {
@@ -54,11 +54,11 @@ return {
 						},
 					},
 				},
-				special_files = { "README.md" },
+				special_files = { "README.md", "LICENSE", "CONTRIBUTING.md" },
 			},
 		})
 
-		-- auto open file explorer on setup
+		-- auto open file tree
 		local function open_nvim_tree(data)
 			local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 			local directory = vim.fn.isdirectory(data.file) == 1
