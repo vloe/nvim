@@ -1,8 +1,8 @@
 ![image](https://pub-17a0349a6dd0473f8502957f5c524d98.r2.dev/Screenshot%202023-10-06%20at%2001.02.46.png)
 
-## clone repository
+## clone repo
 
-make sure to backup your current config. then clone this repository to `~/.config/nvim`.
+make sure to backup your current config. then clone the repo to `~/.config/nvim`.
 
 ```sh
 git clone https://github.com/vloe/nvim ~/.config/nvim
@@ -15,26 +15,41 @@ git clone https://github.com/vloe/nvim ~/.config/nvim
 module.exports = {
   config: {
     updateChannel: "stable",
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: "SauceCodePro Nerd Font",
     fontWeight: "normal",
     fontWeightBold: "bold",
     lineHeight: 1,
     letterSpacing: 0,
-    cursorColor: "#957FB8", // oniViolet (kanagawa colorscheme)
+    cursorColor: "#957fb8", // purple
     cursorAccentColor: "#000",
     cursorShape: "BLOCK",
     cursorBlink: false,
-    foregroundColor: "#9da2af",
-    backgroundColor: "#17181b",
-    selectionColor: "#1c1e20",
-    borderColor: "#333",
-    css: "",
+    foregroundColor: "#fff",
+    backgroundColor: "#000",
+    selectionColor: "#151515", // strong faded gray
+    borderColor: "#303030", // faded gray
+    // adds an icon top middle
+    css: `
+    .header_header { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .header_header::before { 
+        content: 'ɣ';
+        position: absolute;
+        color: #fff;
+        font-size: 14px;
+        z-index: 9999;
+    }
+    `,
     termCSS: "",
     workingDirectory: "",
     showHamburgerMenu: "",
     showWindowControls: "",
-    padding: "10px 10px",
+    padding: "12px 14px",
     colors: {
       black: "#000000",
       red: "#C51E14",
