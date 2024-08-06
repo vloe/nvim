@@ -1,6 +1,4 @@
 local opt = vim.opt
-local cmd = vim.cmd
-local g = vim.g
 
 -- line numbers
 opt.number = true
@@ -35,7 +33,7 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
-opt.updatetime = 500 -- Trigger CursorHold event faster.
+opt.updatetime = 500 -- trigger cursorhold event faster.
 
 opt.fillchars = "eob: " -- remove all ~ symbols
 
@@ -50,4 +48,4 @@ opt.undofile = true
 
 opt.laststatus = 0 -- removing statusline
 
-opt.cursorline = true -- adding CursorLine and CursorLineNr
+opt.cursorline = true -- adding cursorline and cursorlinenr

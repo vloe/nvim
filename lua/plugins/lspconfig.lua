@@ -18,6 +18,37 @@ return {
 		local lsp = vim.lsp
 		local opts = { noremap = true, silent = true }
 
+		-- lowercase wornings
+		diagnostic.config({
+			float = {
+				format = function(diagnostic)
+					local severity = vim.diagnostic.severity[diagnostic.severity]:lower()
+					local message = diagnostic.message:lower()
+
+					return string.format("%s: %s", severity, message)
+				end,
+			},
+			virtual_text = {
+				format = function(diagnostic)
+					return diagnostic.message:lower()
+				end,
+			},
+		})
+
+		local signs = {
+			{ name = "DiagnosticSignError", text = "e" },
+			{ name = "DiagnosticSignWarn", text = "w" },
+			{ name = "DiagnosticSignHint", text = "h" },
+			{ name = "DiagnosticSignInfo", text = "i" },
+			{ name = "DiagnosticSignOk", text = "o" },
+			{ name = "DiagnosticSignDeprecated", text = "d" },
+			{ name = "DiagnosticSignUnused", text = "u" },
+		}
+
+		for _, sign in ipairs(signs) do
+			vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+		end
+
 		local on_attach = function(_, bufnr)
 			opts.buffer = bufnr
 			local float_window_width = 45
