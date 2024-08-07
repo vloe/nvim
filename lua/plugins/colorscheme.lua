@@ -16,8 +16,8 @@ return {
 
 		local highlights = {
 			-- remove bg color
-			Normal = { bg = "none" },
-			NormalFloat = { bg = "none" },
+			Normal = { bg = black },
+			NormalFloat = { bg = black },
 
 			--general
 			Visual = { bg = almost_black },
@@ -37,8 +37,8 @@ return {
 			GitSignsChangedelete = { fg = purple },
 
 			-- nvim tree
-			NvimTreeNormal = { bg = "none" },
-			NvimTreeNormalFloat = { bg = "none" },
+			NvimTreeNormal = { bg = black },
+			NvimTreeNormalFloat = { bg = black },
 			NvimTreeGitDirty = { fg = purple },
 			NvimTreeGitStaged = { fg = purple },
 			NvimTreeGitMerge = { fg = purple },
