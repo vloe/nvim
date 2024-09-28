@@ -53,8 +53,6 @@ return {
 			Event = "",
 			Operator = "",
 			TypeParameter = "",
-			Copilot = "",
-			Supermaven = "",
 		}
 
 		cmp.setup({
@@ -102,8 +100,6 @@ return {
 				end,
 			},
 			sources = cmp.config.sources({
-				{ name = "supermaven" },
-				{ name = "copilot" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },

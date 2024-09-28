@@ -37,7 +37,6 @@ return {
 				"svelte",
 				"lua_ls",
 				"pyright",
-				"astro",
 			},
 		})
 		mason_tool_installer.setup({
