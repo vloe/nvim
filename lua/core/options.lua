@@ -16,6 +16,8 @@ opt.cursorline = true -- highlight current cursor line
 
 opt.termguicolors = true -- need it for the colorscheme to work
 
+opt.signcolumn = "yes" -- avoid text shifting
+
 opt.clipboard:append("unnamedplus") -- copy/paste using system clipboard
 
 opt.updatetime = 500 -- faster cursorhold
