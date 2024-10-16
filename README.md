@@ -10,4 +10,4 @@ git clone https://github.com/vloe/nvim ~/.config/nvim
 
 ## credits
 
-config inspired by: [josean](https://www.josean.com/posts/how-to-setup-neovim-2024)
+inspired by: [josean](https://www.josean.com/posts/how-to-setup-neovim-2024)
