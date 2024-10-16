@@ -1,8 +1,8 @@
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- spacebar as leader
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle filetree
 
 -- bufferline
 keymap.set("n", "<leader>l", ":BufferLineCycleNext<CR>")

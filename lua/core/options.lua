@@ -1,41 +1,26 @@
 local opt = vim.opt
 
--- line numbers
-opt.number = true
-opt.relativenumber = false
-
--- tabs & indentation
+-- tabs and indentation
 opt.tabstop = 4
-opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
 
--- line wrapping
-opt.wrap = false
+opt.wrap = false -- disable line wrapping
 
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
 
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-opt.termguicolors = true
+opt.cursorline = true -- highlight current cursor line
 
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+opt.termguicolors = true -- need it for the colorscheme to work
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard:append("unnamedplus") -- copy/paste using system clipboard
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+opt.updatetime = 500 -- faster cursorhold
 
-opt.iskeyword:append("-") -- consider string-string as whole word
-opt.updatetime = 500 -- trigger cursorhold event faster.
-
-opt.fillchars = "eob: " -- remove all ~ symbols
+opt.fillchars = "eob: " -- remove all the fucking ~ symbols
 
 opt.pumheight = 8 -- cmp window height
 
@@ -47,5 +32,3 @@ opt.backup = false
 opt.undofile = true
 
 opt.laststatus = 0 -- removing statusline
-
-opt.cursorline = true -- adding cursorline and cursorlinenr
