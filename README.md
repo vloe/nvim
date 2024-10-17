@@ -1,4 +1,4 @@
-![image](https://vloe-imgs.s3.eu-west-2.amazonaws.com/nvim1.png)
+![image](https://vloe-imgs.s3.eu-west-2.amazonaws.com/nvim.png)
 
 ## clone repo
 
