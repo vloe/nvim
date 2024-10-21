@@ -12,6 +12,8 @@ opt.wrap = false -- disable line wrapping
 opt.ignorecase = true
 opt.smartcase = true
 
+opt.number = true -- line numbers
+
 opt.cursorline = true -- highlight current cursor line
 
 opt.termguicolors = true -- need it for the colorscheme to work
