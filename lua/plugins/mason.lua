@@ -46,6 +46,8 @@ return {
 				"isort",
 				"black",
 				"pylint",
+				"eslint_d",
+				"taplo",
 			},
 		})
 	end,
